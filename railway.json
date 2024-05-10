@@ -8,7 +8,7 @@
           "nixPkgs": ["python310"]
         }
       }
-    }b 
+    }
   },
   "deploy": {
     "startCommand": "hypercorn main:app --bind \"[::]:$PORT\""
