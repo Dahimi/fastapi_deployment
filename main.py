@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from tester import *
 
+import logging
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
@@ -26,5 +29,6 @@ def execute_test(test: Test):
 if __name__ == '__main__':
     import uvicorn
     import os
-    uvicorn.run("main:app", host="0.0.0.0", port=int(os.getenv("PORT", default=5000)), log_level="info")
+
+    uvicorn.run("main:app", host="0.0.0.0", port=int(os.getenv("PORT", default=5000)), reload=False)
 
